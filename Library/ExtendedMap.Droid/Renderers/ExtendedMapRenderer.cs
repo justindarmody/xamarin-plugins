@@ -58,11 +58,10 @@ namespace ExtendedMaps.Droid
 				this.MoveToRegion (this.Map.VisibleRegion, true);
 
 				_isDrawnDone = true;
-			} 
-			else if (e.PropertyName == ExtendedMap.SelectedPinProperty.PropertyName)
-			{
-				this.UpdateSelectedPin ();	
-			}
+			} else if (e.PropertyName == ExtendedMap.SelectedPinProperty.PropertyName)
+				{
+					this.UpdateSelectedPin ();	
+				}
 		}
 
 		void OnCollectionChanged (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -132,7 +131,7 @@ namespace ExtendedMaps.Droid
 			var radiusInMeters = GeoHelper.GetDistance (bounds.Northeast.Latitude, bounds.Northeast.Longitude, bounds.Southwest.Latitude, bounds.Southwest.Longitude, true);
 
 			var span = MapSpan.FromCenterAndRadius (
-				new Position (bounds.Center.Latitude, bounds.Center.Longitude),
+				           new Position (bounds.Center.Latitude, bounds.Center.Longitude),
 				           Distance.FromMeters (radiusInMeters));
 //				.WithZoom (position.Zoom);
 

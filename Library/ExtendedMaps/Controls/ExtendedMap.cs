@@ -15,11 +15,12 @@ namespace ExtendedMaps
 
 		public static readonly BindableProperty SelectedPinProperty = BindableProperty.Create<ExtendedMap, ExtendedPin> (x => x.SelectedPin, null);
 
-		public static readonly BindableProperty VisibleRegionProperty = BindableProperty.Create<ExtendedMap, MapSpan> (x => x.VisibleRegion, default(MapSpan), propertyChanged: VisibleRegionChanged);
+		public static readonly BindableProperty VisibleRegionProperty = BindableProperty.Create<ExtendedMap, MapSpan> (x => x.VisibleRegion, default(MapSpan));
+
+		public static readonly BindableProperty ShowDetailCommandProperty = BindableProperty.Create<ExtendedMap, ICommand>( x => x.ShowDetailCommand, null);
 
 		public ExtendedMap(MapSpan region) : base(region)
 		{
-			LastMoveToRegion = region;
 		}
 
 		public ExtendedPin SelectedPin 
@@ -28,11 +29,13 @@ namespace ExtendedMaps
 			set{ base.SetValue (SelectedPinProperty, value); }
 		}
 
-		public ICommand ShowDetailCommand { get; set; }
+		public ICommand ShowDetailCommand
+		{ 
+			get{ return (ICommand)base.GetValue (ShowDetailCommandProperty); }
+			set{ base.SetValue (ShowDetailCommandProperty, value); }
+		}
 
-		private MapSpan _visibleRegion;
-
-		public MapSpan LastMoveToRegion { get; private set; }
+//		public MapSpan LastMoveToRegion { get; private set; }
 
 		public new MapSpan VisibleRegion
 		{ 
@@ -65,11 +68,6 @@ namespace ExtendedMaps
 					picker.Pins.Add (item.AsPin ());
 				}
 			}
-		}
-
-		private static void VisibleRegionChanged(BindableObject bindable, MapSpan oldValue, MapSpan newValue)
-		{
-			
 		}
 	}
 }

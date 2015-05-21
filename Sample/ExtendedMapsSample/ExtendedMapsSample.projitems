@@ -12,5 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMapsSample.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CustomPin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DetailPage.cs" />
   </ItemGroup>
 </Project>

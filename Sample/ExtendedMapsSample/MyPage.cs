@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using ExtendedMapsSample;
+using System.Windows.Input;
 
 namespace ExtendedMaps.Sample
 {
@@ -17,7 +18,6 @@ namespace ExtendedMaps.Sample
 		public MyPage ()
 		{
 			var vm = new ViewModel ();
-
 			this.BindingContext = vm;
 
 			var center = GeoHelper.GetCentralPosition (vm.Monkeys.Select (m => m.Location));
@@ -34,6 +34,7 @@ namespace ExtendedMaps.Sample
 			map.SetBinding<ViewModel> (ExtendedMap.ItemsSourceProperty, m => m.Monkeys);
 			map.SetBinding<ViewModel> (ExtendedMap.SelectedPinProperty, m => m.Selected, BindingMode.TwoWay);
 			map.SetBinding<ViewModel> (ExtendedMap.VisibleRegionProperty, m => m.Span, BindingMode.TwoWay);
+			map.SetBinding<ViewModel> (ExtendedMap.ShowDetailCommandProperty, m => m.PinSelectedCommand);
 
 			var relativeLayout = new RelativeLayout ();
 
@@ -43,12 +44,16 @@ namespace ExtendedMaps.Sample
 				heightConstraint: Constraint.RelativeToParent((parent) => { return parent.Height * 0.5; }));
 
 			var listView = new ListView ();
-			listView.RowHeight = 100;
+			listView.RowHeight = 50;
 			listView.ItemTemplate = new DataTemplate (typeof(TextCell));
 			listView.ItemTemplate.SetBinding (TextCell.TextProperty, "Name");
 			listView.SetBinding<ViewModel> (ListView.ItemsSourceProperty, m => m.Monkeys);
-			listView.ItemSelected += (sender, e) => {
+			listView.ItemSelected += async (sender, e) => {
 				vm.Selected = e.SelectedItem as CustomPin;
+			};
+
+			vm.PinSelected += (sender, e) => {
+				this.Navigation.PushAsync(new DetailPage(e));
 			};
 
 			relativeLayout.Children.Add(
@@ -61,6 +66,7 @@ namespace ExtendedMaps.Sample
 
 		private class ViewModel : INotifyPropertyChanged
 		{
+			public event EventHandler<CustomPin> PinSelected;
 			public event PropertyChangedEventHandler PropertyChanged;
 
 			private CustomPin selected;
@@ -76,6 +82,8 @@ namespace ExtendedMaps.Sample
 			}
 
 			public MapSpan Span { get; private set; }
+
+			public ICommand PinSelectedCommand { get; private set; }
 
 			public ViewModel()
 			{
@@ -110,6 +118,8 @@ namespace ExtendedMaps.Sample
 				var radiusInMeters = GeoHelper.GetRadius(center, this.Monkeys.Select(m => m.Location), true);
 
 				this.Span = MapSpan.FromCenterAndRadius(center, Distance.FromMeters(radiusInMeters));
+
+				this.PinSelectedCommand = new Command<CustomPin>((pin) => { this.PinSelected(this, pin); });
 			}
 
 			private void RaisePropertyChanged([CallerMemberName] string properName = null)

@@ -53,6 +53,8 @@ namespace ExtendedMaps.Droid
 			this.googleMap.UiSettings.MapToolbarEnabled = false;
 
 			MapsInitializer.Initialize (this.Context);
+
+			this.MoveToRegion (((LiteMap)this.Element).VisibleRegion, false);
 		}
 
 		public override SizeRequest GetDesiredSize (int widthConstraint, int heightConstraint)
@@ -74,7 +76,10 @@ namespace ExtendedMaps.Droid
 			if (e.NewElement != null) {
 				this.Map.MoveToRegionRequested += this.MoveToRegionRequested;
 
-				MapView mapView2 = new MapView (this.Context);
+				var options = new GoogleMapOptions ();
+				options.InvokeLiteMode (true);
+
+				MapView mapView2 = new MapView (this.Context, options);
 				mapView2.OnCreate (LiteMapRenderer.bundle);
 				mapView2.OnResume ();
 
@@ -98,8 +103,10 @@ namespace ExtendedMaps.Droid
 				return;
 			}
 
-			if (e.PropertyName.Equals ("VisibleRegion") && !_isDrawnDone) {
+			if (e.PropertyName == LiteMap.VisibleRegionProperty.PropertyName && !_isDrawnDone) {
 				UpdatePins ();
+
+				this.MoveToRegion (this.Map.VisibleRegion, false);
 
 				_isDrawnDone = true;
 			}
@@ -115,7 +122,7 @@ namespace ExtendedMaps.Droid
 			base.OnLayout (changed, l, t, r, b);
 			if (!this.init)
 				return;
-			this.MoveToRegion (((LiteMap)this.Element).LastMoveToRegion, false);
+			this.MoveToRegion (((LiteMap)this.Element).VisibleRegion, false);
 			this.UpdatePins ();
 			this.init = false;
 		}
@@ -150,16 +157,22 @@ namespace ExtendedMaps.Droid
 
 		private void MoveToRegion (MapSpan span, bool animate)
 		{
-			GoogleMap nativeMap = this.googleMap;
-			if (nativeMap == null) {
-				return;
-			}
-			span = span.ClampLatitude (85.0, -85.0);
-			LatLng northeast = new LatLng (span.Center.Latitude + span.LatitudeDegrees / 2.0, span.Center.Longitude + span.LongitudeDegrees / 2.0);
-			CameraUpdate update = CameraUpdateFactory.NewLatLngBounds (new LatLngBounds (new LatLng (span.Center.Latitude - span.LatitudeDegrees / 2.0, span.Center.Longitude - span.LongitudeDegrees / 2.0), northeast), 0);
-			try {
-				nativeMap.MoveCamera (update);
-			} catch (IllegalStateException ex) {
+			if (span != null)
+			{
+				if (this.googleMap == null)
+				{
+					return;
+				}
+				//			span = span.ClampLatitude (85.0, -85.0);
+
+				LatLng northeast = new LatLng (span.Center.Latitude + span.LatitudeDegrees / 2.0, span.Center.Longitude + span.LongitudeDegrees / 2.0);
+				CameraUpdate update = CameraUpdateFactory.NewLatLngBounds (new LatLngBounds (new LatLng (span.Center.Latitude - span.LatitudeDegrees / 2.0, span.Center.Longitude - span.LongitudeDegrees / 2.0), northeast), 0);
+				try
+				{
+					this.googleMap.MoveCamera (update);
+				} catch (IllegalStateException ex)
+				{
+				}
 			}
 		}
 
