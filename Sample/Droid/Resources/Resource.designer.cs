@@ -28,9 +28,9 @@ namespace ExtendedMaps.Sample.Droid
 		{
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::ExtendedMaps.Sample.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::ExtendedMaps.Sample.Droid.Resource.String.Hello;
-			global::ExtendedMap.Droid.Resource.String.ApplicationName = global::ExtendedMaps.Sample.Droid.Resource.String.ApplicationName;
-			global::ExtendedMap.Droid.Resource.String.Hello = global::ExtendedMaps.Sample.Droid.Resource.String.Hello;
-			global::ExtendedMap.Droid.Resource.String.library_name = global::ExtendedMaps.Sample.Droid.Resource.String.library_name;
+			global::ExtendedMaps.Droid.Resource.String.ApplicationName = global::ExtendedMaps.Sample.Droid.Resource.String.ApplicationName;
+			global::ExtendedMaps.Droid.Resource.String.Hello = global::ExtendedMaps.Sample.Droid.Resource.String.Hello;
+			global::ExtendedMaps.Droid.Resource.String.library_name = global::ExtendedMaps.Sample.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation

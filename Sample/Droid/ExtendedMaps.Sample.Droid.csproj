@@ -27,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -34,8 +35,8 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -101,13 +102,13 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
-    <ProjectReference Include="..\..\Library\ExtendedMap.Droid\ExtendedMap.Droid.csproj">
-      <Project>{FBDA6636-327A-46C3-99B1-D4ED88C0B4AF}</Project>
-      <Name>ExtendedMap.Droid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Library\ExtendedMaps\ExtendedMaps.csproj">
       <Project>{C1902CCB-6C9B-46DA-9ABD-419A8F53BD13}</Project>
       <Name>ExtendedMaps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\ExtendedMap.Droid\ExtendedMaps.Droid.csproj">
+      <Project>{FBDA6636-327A-46C3-99B1-D4ED88C0B4AF}</Project>
+      <Name>ExtendedMaps.Droid</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{CBBB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedMaps", "Library\ExtendedMaps\ExtendedMaps.csproj", "{C1902CCB-6C9B-46DA-9ABD-419A8F53BD13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedMap.Droid", "Library\ExtendedMap.Droid\ExtendedMap.Droid.csproj", "{FBDA6636-327A-46C3-99B1-D4ED88C0B4AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedMaps.Droid", "Library\ExtendedMap.Droid\ExtendedMaps.Droid.csproj", "{FBDA6636-327A-46C3-99B1-D4ED88C0B4AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{500F54D0-1079-4918-A221-0A5E58ED3B17}"
 EndProject

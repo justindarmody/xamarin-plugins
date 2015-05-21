@@ -12,7 +12,10 @@ namespace ExtendedMaps
 	public class ExtendedMap : Map
 	{
 		public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create<ExtendedMap, IEnumerable> (x => x.ItemsSource, null, propertyChanged: OnItemsSourceChanged);
+
 		public static readonly BindableProperty SelectedPinProperty = BindableProperty.Create<ExtendedMap, ExtendedPin> (x => x.SelectedPin, null);
+
+		public static readonly BindableProperty VisibleRegionProperty = BindableProperty.Create<ExtendedMap, MapSpan> (x => x.VisibleRegion, default(MapSpan), propertyChanged: VisibleRegionChanged);
 
 		public ExtendedMap(MapSpan region) : base(region)
 		{
@@ -32,23 +35,9 @@ namespace ExtendedMaps
 		public MapSpan LastMoveToRegion { get; private set; }
 
 		public new MapSpan VisibleRegion
-		{
-			get { return _visibleRegion; }
-			set
-			{
-				if (_visibleRegion == value)
-				{
-					return;
-				}
-				if (value == null)
-				{
-					throw new ArgumentNullException("value");
-				}
-
-				OnPropertyChanging("VisibleRegion");
-				_visibleRegion = value;
-				OnPropertyChanged("VisibleRegion");
-			}
+		{ 
+			get{ return (MapSpan)base.GetValue (VisibleRegionProperty); }
+			set{ base.SetValue (VisibleRegionProperty, value); }
 		}
 
 		public IEnumerable ItemsSource
@@ -76,6 +65,11 @@ namespace ExtendedMaps
 					picker.Pins.Add (item.AsPin ());
 				}
 			}
+		}
+
+		private static void VisibleRegionChanged(BindableObject bindable, MapSpan oldValue, MapSpan newValue)
+		{
+			
 		}
 	}
 }

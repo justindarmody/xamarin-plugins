@@ -6,13 +6,13 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{FBDA6636-327A-46C3-99B1-D4ED88C0B4AF}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ExtendedMap.Droid</RootNamespace>
+    <RootNamespace>ExtendedMaps.Droid</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>ExtendedMap.Droid</AssemblyName>
+    <AssemblyName>ExtendedMaps.Droid</AssemblyName>
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -77,6 +77,8 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Renderers\ExtendedMapRenderer.cs" />
+    <Compile Include="Renderers\LiteMapRenderer.cs" />
+    <Compile Include="Maps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
