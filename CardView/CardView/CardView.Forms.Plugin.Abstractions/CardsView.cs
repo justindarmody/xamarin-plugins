@@ -9,6 +9,8 @@ namespace CardView.Forms.Plugin.Abstractions
 {
     public class CardsView : StackLayout//Layout<CardContentView>
     {
+        internal event EventHandler LayoutChildrenRequested;
+
         public new Color BackgroundColor 
         {
             get { throw new NotSupportedException(); }
@@ -23,11 +25,6 @@ namespace CardView.Forms.Plugin.Abstractions
         protected override SizeRequest OnSizeRequest(double widthConstraint, double heightConstraint)
         {
             return base.OnSizeRequest(widthConstraint, heightConstraint);
-        }
-
-        protected override void LayoutChildren(double x, double y, double width, double height)
-        {
-            base.LayoutChildren(x, y, width, height);
         }
 
 //        private readonly Dictionary<Size, SizeRequest> measureCache = new Dictionary<Size, SizeRequest>();

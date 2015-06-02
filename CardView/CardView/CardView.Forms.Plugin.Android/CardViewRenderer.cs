@@ -12,12 +12,12 @@ namespace CardView.Forms.Plugin.Droid
     {
         public CardViewRenderer () : base (Xamarin.Forms.Forms.Context)
         {
+            
         }
 
         public event EventHandler<VisualElementChangedEventArgs> ElementChanged;
 
         bool init;
-        ViewGroup packed;
 
         public void SetElement (VisualElement element)
         {
@@ -83,10 +83,10 @@ namespace CardView.Forms.Plugin.Droid
 
         public SizeRequest GetDesiredSize (int widthConstraint, int heightConstraint)
         {
-            packed.Measure (widthConstraint, heightConstraint);
+            this.Measure (widthConstraint, heightConstraint);
 
             //Measure child here and determine size
-            return new SizeRequest (new Size (packed.MeasuredWidth, packed.MeasuredHeight));
+            return new SizeRequest (new Size (this.MeasuredWidth, this.MeasuredHeight));
         }
 
         public void UpdateLayout ()

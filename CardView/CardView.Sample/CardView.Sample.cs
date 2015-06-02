@@ -16,10 +16,10 @@ namespace CardView.Sample
         {   
             var stack = new CardsView()
             {
-                    Padding = new Thickness(15, 0)
+                    Padding = new Thickness(Device.OnPlatform(15, 25, 15), Device.OnPlatform(0, 5, 0))
             };
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 20; i++) {
 
                 var panel = new StackLayout();
 
