@@ -14,12 +14,20 @@ namespace CardView.Sample
 
         public static Page GetMainPage ()
         {   
-            var stack = new CardsView()
+            var page = new ContentPage()
             {
-                    Padding = new Thickness(Device.OnPlatform(15, 25, 15), Device.OnPlatform(0, 5, 0))
+                BackgroundColor = Color.Gray
             };
 
-            for (int i = 0; i < 20; i++) {
+            var header = new BoxView
+            {
+                    BackgroundColor = Color.Blue,
+                    Color = Color.Blue
+            };
+
+            var wrapper = new CardsView();
+
+            for (int i = 0; i < 1; i++) {
 
                 var panel = new StackLayout();
 
@@ -38,22 +46,35 @@ namespace CardView.Sample
                         TextColor = Color.Black
                     });
 
+                panel.Children.Add(new Button
+                    {Text = "Click Me",
+                        Command = new Command(() => {
+                            page.DisplayAlert("Click", "You clicked me!", "Ok");
+                        })
+                    });
+
                 var card = new CardContentView {
-                    Padding = 40,
-                    CornderRadius = 10,
+                    Padding = 15,
+                    CornderRadius = 5,
                     Content = panel,
-                    BackgroundColor = Color.White
+                    BackgroundColor = Color.White,
+                    Command = new Command(() => {
+                        page.DisplayAlert("Alert", "I am a card: " + i + "!!!", "Ok");
+                    })
                 };
 
-                stack.Children.Add (card);
+                wrapper.AddCard(card);
             }
 
-            return new NavigationPage(new ContentPage
-                { 
-                    Content = stack,
-                    BackgroundColor = Color.Gray
-                }
-            );
+//            wrapper.Content = stack;
+
+            var content = new AbsoluteLayout();
+            content.Children.Add(header, new Rectangle(0, 0, 1, 0.25), AbsoluteLayoutFlags.SizeProportional);
+            content.Children.Add(wrapper, new Rectangle(1, 0.25, 1, 1), AbsoluteLayoutFlags.All);
+
+            page.Content = content;
+
+            return new NavigationPage(page);
         }
     }
 }

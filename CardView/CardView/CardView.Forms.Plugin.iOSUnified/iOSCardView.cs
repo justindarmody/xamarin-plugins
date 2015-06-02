@@ -18,7 +18,7 @@ namespace CardView.Forms.Plugin.iOSUnified
             {
                 base.Frame = value;
 
-                this.DrawRect(base.Frame);
+                this.DrawBorder(base.Frame, 0.0f);
             }
         }
 
@@ -30,10 +30,10 @@ namespace CardView.Forms.Plugin.iOSUnified
         public iOSCardView(CGRect frame)
             : base(frame)
         {
-            this.DrawRect(frame);
+            this.DrawBorder(frame, 0.0f);
         }
 
-        protected void DrawRect(CGRect rect)
+        protected void DrawBorder(CGRect rect, nfloat radius)
         {
             UIBezierPath shadowPath = UIBezierPath.FromRect(this.Bounds);
             this.ZeroFrame = this.Frame;
@@ -42,6 +42,8 @@ namespace CardView.Forms.Plugin.iOSUnified
             this.Layer.ShadowOffset = new CGSize(0.0f, 1.0f);
             this.Layer.ShadowOpacity = 0.5f;
             this.Layer.ShadowPath = shadowPath.CGPath;
+            this.Layer.CornerRadius = radius;
+            this.Layer.ShadowRadius = radius;
 //            this.BackgroundColor = UIColor.White;
         }
 

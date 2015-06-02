@@ -129,13 +129,14 @@ namespace CardView.Forms.Plugin.iOSUnified
                 e.PropertyName == CardContentView.WidthProperty.PropertyName ||
                 e.PropertyName == CardContentView.HeightProperty.PropertyName ||
                 e.PropertyName == CardContentView.XProperty.PropertyName ||
-                e.PropertyName == CardContentView.YProperty.PropertyName)
+                e.PropertyName == CardContentView.YProperty.PropertyName ||
+                e.PropertyName == CardContentView.CornerRadiusProperty.PropertyName)
             {
                 this.Element.Layout(this.Element.Bounds);
 
+                var radius = (this.Element as CardContentView).CornderRadius;
                 var bound = this.Element.Bounds;
-
-                this.DrawRect(new CoreGraphics.CGRect(bound.X, bound.Y, bound.Width, bound.Height));
+                this.DrawBorder(new CoreGraphics.CGRect(bound.X, bound.Y, bound.Width, bound.Height), (nfloat)radius);
             }
             else if (e.PropertyName == CardContentView.PaddingProperty.PropertyName)
             {

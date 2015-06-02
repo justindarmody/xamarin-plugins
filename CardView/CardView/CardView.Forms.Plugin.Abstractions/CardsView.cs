@@ -7,9 +7,15 @@ using System.Collections.ObjectModel;
 
 namespace CardView.Forms.Plugin.Abstractions
 {
-    public class CardsView : StackLayout//Layout<CardContentView>
+    public class CardsView : ScrollView//StackLayout//Layout<CardContentView>
     {
         internal event EventHandler LayoutChildrenRequested;
+
+        internal new View Content
+        {
+            get { return base.Content; }
+            set { base.Content = value; }
+        }
 
         public new Color BackgroundColor 
         {
@@ -17,53 +23,38 @@ namespace CardView.Forms.Plugin.Abstractions
             set { throw new NotSupportedException(); }
         }
 
-        protected override void OnSizeAllocated(double width, double height)
+        public CardsView()
         {
-            base.OnSizeAllocated(width, height);
+            this.Content = new StackLayout
+            {
+                    Padding = new Thickness(15),
+                    Spacing = 15
+            };
         }
 
-        protected override SizeRequest OnSizeRequest(double widthConstraint, double heightConstraint)
+        public void AddCard(CardContentView card)
         {
-            return base.OnSizeRequest(widthConstraint, heightConstraint);
+            (this.Content as StackLayout).Children.Add(card);
         }
 
-//        private readonly Dictionary<Size, SizeRequest> measureCache = new Dictionary<Size, SizeRequest>();
-//        private CardsView.LayoutInformation layoutInformation = new CardsView.LayoutInformation();
-//
-//        #region implemented abstract members of Layout
-//
-//        protected override void LayoutChildren(double x, double y, double width, double height)
+        public void RemoveCard(CardContentView card)
+        {
+            (this.Content as StackLayout).Children.Remove(card);
+        }
+
+//        protected override void OnSizeAllocated(double width, double height)
 //        {
-////            throw new NotImplementedException();
+//            base.OnSizeAllocated(width, height);
 //        }
-//
-//        #endregion
-//
-
 //
 //        protected override SizeRequest OnSizeRequest(double widthConstraint, double heightConstraint)
 //        {
-//            var deviceInfo = DependencyService.Get<DeviceInfo>();
-//
-//            return new SizeRequest(new Size(Math.Min(Device.Info.ScaledScreenSize.Width, Device.Info.ScaledScreenSize.Height), Math.Max(Device.Info.ScaledScreenSize.Width, Device.Info.ScaledScreenSize.Height)), new Size(40.0, 40.0));
-//        } 
-//
-//        protected override void InvalidateMeasure()
-//        {
-//            this.measureCache.Clear();
-//            this.layoutInformation = new CardsView.LayoutInformation();
-//            base.InvalidateMeasure();
+//            return base.OnSizeRequest(widthConstraint, heightConstraint);
 //        }
-//       
-//        private class LayoutInformation
+
+//        protected override void LayoutChildren(double x, double y, double width, double height)
 //        {
-//            public Size Constraint;
-//            public Rectangle[] Plots;
-//            public SizeRequest[] Requests;
-//            public Rectangle Bounds;
-//            public Size MinimumSize;
-//            public double CompressionSpace;
-//            public int Expanders;
+////            throw new NotImplementedException();
 //        }
     }
 }
