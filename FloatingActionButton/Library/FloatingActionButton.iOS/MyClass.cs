@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FloatingActionButton.Shared
+namespace FloatingActionButton.iOS
 {
     public class MyClass
     {

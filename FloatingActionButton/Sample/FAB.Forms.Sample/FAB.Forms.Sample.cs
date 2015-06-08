@@ -16,7 +16,7 @@ namespace FAB.Forms.Sample
                 YAlign = TextAlignment.Center,
                 Text = "Hello Floating Action Button!"
             };
-
+                        
             var fab = new FAB.Forms.FloatingActionButton();
             fab.Source = "ic_add_white_24dp.png";
 

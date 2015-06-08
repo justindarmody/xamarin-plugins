@@ -46,6 +46,16 @@ namespace FAB.Forms
             set { this.SetValue(HasShadowProperty, value); }
         }
 
+        public new double WidthRequest {
+            get { return this.Size == FabSize.Normal ? 56 : 40; }
+            set { throw new NotImplementedException(); }
+        }
+
+        public new double HeightRequest {
+            get { return this.Size == FabSize.Normal ? 56 : 40; }
+            set { throw new NotImplementedException(); }
+        }
+
         [TypeConverter(typeof(ImageSourceConverter))] 
         public ImageSource Source { 
             get { return (ImageSource)this.GetValue(SourceProperty); }
@@ -57,4 +67,3 @@ namespace FAB.Forms
         }
     }
 }
-
