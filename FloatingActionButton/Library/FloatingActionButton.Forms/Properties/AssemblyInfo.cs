@@ -25,3 +25,5 @@ using System.Runtime.CompilerServices;
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
 
+[assembly: InternalsVisibleTo("FloatingActionButton.Droid")]
+[assembly: InternalsVisibleTo("FloatingActionButton.iOS")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace FAB.Forms
 {
@@ -16,6 +17,12 @@ namespace FAB.Forms
         public static readonly BindableProperty HasShadowProperty = BindableProperty.Create<FloatingActionButton, bool>(mn => mn.HasShadow, true);
 
         public static readonly BindableProperty SourceProperty = BindableProperty.Create<FloatingActionButton, ImageSource>(mn => mn.Source, null);
+
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create<FloatingActionButton, ICommand>(mn => mn.Command, null, propertyChanged:HandleCommandChanged);
+
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<FloatingActionButton, object>(mn => mn.CommandParameter, null);
+
+        public event EventHandler<EventArgs> Clicked;
 
         public FabSize Size
         { 
@@ -62,8 +69,45 @@ namespace FAB.Forms
             set { this.SetValue(SourceProperty, value); }
         }
 
+        public ICommand Command
+        {
+            get { return (ICommand)this.GetValue(CommandProperty); }
+            set { this.SetValue(CommandProperty, value); }
+        }
+
+        public object CommandParameter
+        {
+            get { return (object)this.GetValue(CommandParameterProperty); }
+            set { this.SetValue(CommandParameterProperty, value); }
+        }
+
         public FloatingActionButton()
         {
+        }
+
+        internal void SendClicked()
+        {
+            var param = this.CommandParameter;
+
+            if (this.Command != null && this.Command.CanExecute(param))
+            {
+                this.Command.Execute(param);
+            }
+
+            if (this.Clicked != null)
+            {
+                this.Clicked(this, EventArgs.Empty);
+            }
+        }
+
+        private void InternalHandleCommand(ICommand oldValue, ICommand newValue)
+        {
+            // TOOD: attach to CanExecuteChanged
+        }
+
+        private static void HandleCommandChanged(BindableObject bindable, ICommand oldValue, ICommand newValue)
+        {
+            (bindable as FloatingActionButton).InternalHandleCommand(oldValue, newValue);
         }
     }
 }

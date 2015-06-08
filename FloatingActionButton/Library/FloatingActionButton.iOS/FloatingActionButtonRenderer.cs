@@ -22,7 +22,14 @@ namespace FAB.iOS
                 this.SetNativeControl(fab);
 
                 this.UpdateStyle();
+
+                this.Control.TouchUpInside += Fab_TouchUpInside;
             }
+        }
+
+        void Fab_TouchUpInside (object sender, EventArgs e)
+        {
+            this.Element.SendClicked();
         }
 
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -48,6 +55,16 @@ namespace FAB.iOS
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                this.Control.TouchUpInside -= Fab_TouchUpInside;
+            }
+
+            base.Dispose(disposing);
         }
 
         private void UpdateStyle()

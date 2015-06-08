@@ -19,16 +19,29 @@ namespace FAB.Droid
             {
                 var fab = new com.refractored.fab.FloatingActionButton(this.Context);
 
+                fab.Click += Fab_Click;
+
                 this.SetNativeControl(fab);
 
                 this.UpdateStyle();
             }
-        }  
+        }
 
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                this.Control.Click -= this.Fab_Click;
+            }
+
+            base.Dispose(disposing);
+        }
+
 
         private void UpdateStyle()
         {
@@ -64,6 +77,10 @@ namespace FAB.Droid
 
             return returnValue;
         }
+
+        private void Fab_Click (object sender, EventArgs e)
+        {
+            this.Element.SendClicked();
+        }
     }
 }
-
