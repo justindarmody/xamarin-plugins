@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UIKit;
 using CoreGraphics;
 using Foundation;
@@ -33,7 +34,7 @@ namespace FAB.iOS
                     return;
 
                 size = value;
-                UpdateBackground ();
+                this.UpdateBackground ();
             }
         }
 
@@ -50,7 +51,7 @@ namespace FAB.iOS
 
                 return _centerImageView;
             }
-            set
+            private set
             {
                 _centerImageView = value;
             }
@@ -66,41 +67,53 @@ namespace FAB.iOS
             set
             {
                 _backgroundColor = value;
-                this.BackgroundCircle.BackgroundColor = _backgroundColor;
+
+                this.UpdateBackground();
             }
         }
 
-        public UIColor PressedBackgroundColor { get; set; }
-
-        public UIColor ShadowColor {get; set;}
-
-        public nfloat ShadowOpacity {get; set;}
-
-        public nfloat ShadowRadius {get; set;}
-
-        public nfloat AnimationScale {get; set;}
-
-        public nfloat AnimationDuration {get; set;}
-
-        public bool IsAnimating {get; set;}
-
-        UIView _backgroundCircle;
-        public UIView BackgroundCircle
-        {
-            get
-            {
-                if (_backgroundCircle == null)
-                {
-                    _backgroundCircle = new UIView(this.Bounds);
-                }
-
-                return _backgroundCircle;
-            }
+        UIColor _pressedBackgroundColor;
+        public UIColor PressedBackgroundColor
+        { 
+            get { return _pressedBackgroundColor; }
             set
             {
-                _backgroundCircle = value;
+                _pressedBackgroundColor = value; 
+                this.UpdateBackground();
             }
         }
+
+        UIColor _shadowColor;
+        public UIColor ShadowColor
+        { 
+            get { return _shadowColor; }
+            set
+            {
+                _shadowColor = value; 
+                this.UpdateBackground();
+            }
+        }
+
+        bool _hasShadow;
+        public bool HasShadow
+        {
+            get { return _hasShadow; }
+            set
+            { _hasShadow = value; this.UpdateBackground();
+            }
+        }
+
+        public nfloat ShadowOpacity {get; private set;}
+
+        public nfloat ShadowRadius {get; private set;}
+
+        public nfloat AnimationScale {get; private set;}
+
+        public nfloat AnimationDuration {get; private set;}
+
+        public bool IsAnimating {get; private set;}
+
+        public UIView BackgroundCircle { get; private set; }
 
         public MNFloatingActionButton() : base() 
         {
@@ -124,6 +137,8 @@ namespace FAB.iOS
 
         void CommonInit()
         {
+            this.BackgroundCircle = new UIView();
+
             this.BackgroundColor = UIColor.Red.ColorWithAlpha(0.4f);
             this.BackgroundColor = new UIColor(33.0f / 255.0f, 150.0f / 255.0f, 243.0f / 255.0f, 1.0f);
             this.BackgroundCircle.BackgroundColor = this.BackgroundColor;
@@ -131,30 +146,11 @@ namespace FAB.iOS
             this.ShadowRadius = shadowRadius;
             this.AnimationScale = animationScale;
             this.AnimationDuration = animationDuration;
+
             this.BackgroundCircle.AddSubview(this.CenterImageView);
             this.AddSubview(this.BackgroundCircle);
         }
-
-        public override void LayoutSubviews()
-        {
-            base.LayoutSubviews();
-
-            this.CenterImageView.Center = this.BackgroundCircle.Center;
-            if (!this.IsAnimating)
-            {
-                var viewSize = this.Size == FABSize.Normal ? 56 : 40;
-
-                this.BackgroundCircle.Frame = new CGRect(this.Bounds.X, this.Bounds.Y, viewSize, viewSize);
-                this.BackgroundCircle.Layer.CornerRadius = this.Bounds.Size.Height / 2;
-                this.BackgroundCircle.Layer.ShadowColor = this.ShadowColor != null ? this.ShadowColor.CGColor : this.BackgroundColor.CGColor; 
-                this.BackgroundCircle.Layer.ShadowOpacity = (float)this.ShadowOpacity;
-                this.BackgroundCircle.Layer.ShadowRadius = this.ShadowRadius;
-                this.BackgroundCircle.Layer.ShadowOffset = new CGSize(1.0, 1.0);
-
-                this.CenterImageView.Frame = new CGRect(0, 0, 24, 24);
-            }
-        }
-
+    
         public override void TouchesBegan(NSSet touches, UIEvent evt)
         {
             base.TouchesBegan(touches, evt);
@@ -221,9 +217,30 @@ namespace FAB.iOS
             this.BackgroundCircle.Layer.ShadowOpacity = (float)endOpacity;
         }
     
+        public override void LayoutSubviews()
+        {
+            base.LayoutSubviews();
+
+            this.CenterImageView.Center = this.BackgroundCircle.Center;
+            if (!this.IsAnimating)
+            {
+                this.UpdateBackground();
+            }
+        }
         private void UpdateBackground()
         {
-        }
-            
+            this.BackgroundCircle.Frame =  this.Bounds;
+            this.BackgroundCircle.Layer.CornerRadius = this.Bounds.Size.Height / 2;
+            this.BackgroundCircle.Layer.ShadowColor = this.ShadowColor != null ? this.ShadowColor.CGColor : this.BackgroundColor.CGColor; 
+            this.BackgroundCircle.Layer.ShadowOpacity = (float)this.ShadowOpacity;
+            this.BackgroundCircle.Layer.ShadowRadius = this.ShadowRadius;
+            this.BackgroundCircle.Layer.ShadowOffset = new CGSize(1.0, 1.0);
+            this.BackgroundCircle.BackgroundColor = this.BackgroundColor;
+
+            var xPos = (this.BackgroundCircle.Bounds.Width / 2) - 12;
+            var yPos = (this.BackgroundCircle.Bounds.Height / 2) - 12;
+
+            this.CenterImageView.Frame = new CGRect(xPos, yPos, 24, 24);
+        }  
     }
 }

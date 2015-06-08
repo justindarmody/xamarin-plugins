@@ -40,7 +40,9 @@ namespace FAB.iOS
 
         public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
         {
-            return new SizeRequest(new Size(24, 24)); //base.GetDesiredSize(widthConstraint, heightConstraint);
+            var viewSize = this.Element.Size == FAB.Forms.FabSize.Normal ? 56 : 40;
+            
+            return new SizeRequest(new Size(viewSize, viewSize)); //base.GetDesiredSize(widthConstraint, heightConstraint);
         }
 
         public override void LayoutSubviews()
@@ -63,7 +65,7 @@ namespace FAB.iOS
             this.Control.BackgroundColor = this.Element.NormalColor.ToUIColor();
             this.Control.PressedBackgroundColor = this.Element.PressedColor.ToUIColor();
 
-            this.Control.ShadowOpacity = this.Element.HasShadow ? 0.6f : 0.0f;
+            this.Control.HasShadow = this.Element.HasShadow;
 
 //            this.Control.ColorNormal = this.Element.NormalColor.ToAndroid();
 //            this.Control.ColorPressed = this.Element.PressedColor.ToAndroid();

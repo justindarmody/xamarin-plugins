@@ -19,6 +19,7 @@ namespace FAB.Forms.Sample
                         
             var fab = new FAB.Forms.FloatingActionButton();
             fab.Source = "ic_add_white_24dp.png";
+            fab.Size = FabSize.Mini;
 
             layout.Children.Add(
                 label,
