@@ -28,6 +28,12 @@ normalFab.SizeChanged += (sender, args) => { layout.ForceLayout(); };
 
 Check the sample project to see additional examples.
 
+### TODO Items
+
+* Hide/Show FAB based on scroll of ScrollView, ListView or TableView
+* Floating Action Menu
+
+
 # License
 
 The MIT License (MIT)
