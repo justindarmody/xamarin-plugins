@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>FAB.Forms</id>
-        <version>1.0.0.0</version>
+        <version>1.0.0.1</version>
         <title>Floating Action Button For Xamarin.Forms</title>
         <authors>Drew Frisk</authors>
         <owners>Drew Frisk</owners>
@@ -13,7 +13,10 @@
         <description>Custom control for your Xamarin.Forms project to render a floating action button in projects that target Android or iOS</description>
         <summary>Creates a Floating Action Button for Xamarin.Forms</summary>
         <tags>xamarin, pcl, xam.pcl, floating action button, fab, android, xamarin.forms, ios</tags>
-    </metadata>
+		<dependencies>
+			<dependency id="Xamarin.Forms" version="1.4.2.6359" />
+		</dependencies>
+    </metadata>	
     <files>
         <file src="..\Library\FloatingActionButton.Droid\bin\Release\FAB.Droid.dll" target="lib\MonoAndroid10\FAB.Droid.dll" />
         <file src="..\Library\FloatingActionButton.Droid\bin\Release\FAB.Droid.xml" target="lib\MonoAndroid10\FAB.Droid.xml" />
