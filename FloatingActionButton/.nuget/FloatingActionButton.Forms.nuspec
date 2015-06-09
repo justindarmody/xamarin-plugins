@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>FloatingActionButton.Forms</id>
+        <version>1.0.0.0</version>
+        <title>Floating Action Button For Xamarin.Forms</title>
+        <authors>Drew Frisk</authors>
+        <owners>Drew Frisk</owners>
+        <licenseUrl>https://github.com/keannan5390/xamarin-plugins/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/keannan5390/xamarin-plugins</projectUrl>
+        <iconUrl>https://github.com/keannan5390/xamarin-plugins/FloatingActionButton/assets/blob/master/icon.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Custom control for your Xamarin.Forms project to render a floating action button in projects that target Android or iOS</description>
+        <summary>Creates a Floating Action Button for Xamarin.Forms</summary>
+        <tags>xamarin, pcl, xam.pcl, floating action button, fab, android, xamarin.forms, ios</tags>
+    </metadata>
+    <files>
+        <file src="..\Library\FloatingActionButton.Droid\bin\Release\FloatingActionButton.Droid.dll" target="lib\MonoAndroid10\FloatingActionButton.Droid.dll" />
+        <file src="..\Library\FloatingActionButton.Droid\bin\Release\FloatingActionButton.Droid.xml" target="lib\MonoAndroid10\FloatingActionButton.Droid.xml" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.dll" target="lib\MonoAndroid10\FloatingActionButton.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.xml" target="lib\MonoAndroid10\FloatingActionButton.Forms.xml" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.dll" target="lib\MonoTouch10\FloatingActionButton.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.xml" target="lib\MonoTouch10\FloatingActionButton.Forms.xml" />
+        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FloatingActionButton.iOS.dll" target="lib\MonoTouch10\FloatingActionButton.iOS.dll" />
+        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FloatingActionButton.iOS.xml" target="lib\MonoTouch10\FloatingActionButton.iOS.xml" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.dll" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\FloatingActionButton.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.xml" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\FloatingActionButton.Forms.xml" />
+    </files>
+</package>
