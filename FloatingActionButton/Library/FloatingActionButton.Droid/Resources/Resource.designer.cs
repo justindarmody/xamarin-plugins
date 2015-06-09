@@ -140,6 +140,12 @@ namespace FAB.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f05000c
+			public static int ApplicationName = 2131034124;
+			
+			// aapt resource value: 0x7f05000b
+			public static int Hello = 2131034123;
+			
 			// aapt resource value: 0x7f050000
 			public static int define_FloatingActionButton = 2131034112;
 			
