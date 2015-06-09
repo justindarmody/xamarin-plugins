@@ -23,7 +23,6 @@ namespace FAB.iOS
 
                 this.UpdateStyle();
 
-//                this.Control.TouchUpInside += Fab_TouchUpInside;
                 this.Control.TouchCancel += this.Fab_TouchUpInside;
             }
         }
@@ -62,7 +61,7 @@ namespace FAB.iOS
         {
             if (disposing)
             {
-                this.Control.TouchUpInside -= Fab_TouchUpInside;
+                this.Control.TouchCancel -= this.Fab_TouchUpInside;
             }
 
             base.Dispose(disposing);

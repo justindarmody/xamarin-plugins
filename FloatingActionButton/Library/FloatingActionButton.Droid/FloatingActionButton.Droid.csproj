@@ -67,6 +67,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="FloatingActionButtonRenderer.cs" />
     <Compile Include="FloatingActionButton.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Library\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\fab_shadow.png" />
