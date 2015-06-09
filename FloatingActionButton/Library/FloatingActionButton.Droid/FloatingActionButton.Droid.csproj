@@ -12,7 +12,7 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>FloatingActionButton.Droid</AssemblyName>
+    <AssemblyName>FAB.Droid</AssemblyName>
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -25,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
+    <DocumentationFile>bin\Debug\FAB.Droid.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -33,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <ConsolePause>false</ConsolePause>
-    <DocumentationFile>bin\Release\FloatingActionButton.Droid.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\FAB.Droid.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,13 +66,7 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="FloatingActionButtonRenderer.cs" />
-    <Compile Include="Library\AbsListViewScrollDetector.cs" />
-    <Compile Include="Library\FloatingActionButton.cs" />
-    <Compile Include="Library\ObservableScrollView.cs" />
-    <Compile Include="Library\RecyclerViewScrollDetector.cs" />
-    <Compile Include="Library\ScrollViewScrollDetector.cs" />
-    <Compile Include="Library\Interfaces\IOnScrollChangedListener.cs" />
-    <Compile Include="Library\Interfaces\IScrollDirectorListener.cs" />
+    <Compile Include="FloatingActionButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

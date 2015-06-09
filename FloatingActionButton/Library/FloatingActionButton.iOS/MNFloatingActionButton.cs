@@ -46,7 +46,7 @@ namespace FAB.iOS
             {
                 if (_centerImageView == null)
                 {
-                    _centerImageView = new UIImageView(new UIImage("plus"));
+                    _centerImageView = new UIImageView();
                 }
 
                 return _centerImageView;

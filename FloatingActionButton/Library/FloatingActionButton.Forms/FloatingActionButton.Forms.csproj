@@ -7,7 +7,7 @@
     <ProjectGuid>{78B00F76-5FB4-4429-ABF6-42A80A6E967E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>FAB.Forms</RootNamespace>
-    <AssemblyName>FloatingActionButton.Forms</AssemblyName>
+    <AssemblyName>FAB.Forms</AssemblyName>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <DocumentationFile>bin\Release\FloatingActionButton.Forms.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\FAB.Forms.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

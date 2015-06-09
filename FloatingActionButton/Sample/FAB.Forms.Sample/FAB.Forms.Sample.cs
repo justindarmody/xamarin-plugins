@@ -25,7 +25,7 @@ namespace FAB.Forms.Sample
             );
                         
             var normalFab = new FAB.Forms.FloatingActionButton();
-            normalFab.Source = "ic_add_white_24dp.png";
+            normalFab.Source = "plus.png";
             normalFab.Size = FabSize.Normal;
 
             layout.Children.Add(
@@ -37,7 +37,7 @@ namespace FAB.Forms.Sample
             normalFab.SizeChanged += (sender, args) => { layout.ForceLayout(); };
 
             var miniFab = new FAB.Forms.FloatingActionButton();
-            miniFab.Source = "ic_add_white_24dp.png";
+            miniFab.Source = "plus.png";
             miniFab.Size = FabSize.Mini;
 
             layout.Children.Add(

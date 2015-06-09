@@ -1376,100 +1376,16 @@ namespace FAB.Forms.Sample.Droid
 			public const int abc_textfield_search_material = 2130837562;
 			
 			// aapt resource value: 0x7f02003b
-			public const int at = 2130837563;
+			public const int fab_shadow = 2130837563;
 			
 			// aapt resource value: 0x7f02003c
-			public const int au = 2130837564;
+			public const int fab_shadow_mini = 2130837564;
 			
 			// aapt resource value: 0x7f02003d
-			public const int br = 2130837565;
+			public const int ic_launcher = 2130837565;
 			
 			// aapt resource value: 0x7f02003e
-			public const int ca = 2130837566;
-			
-			// aapt resource value: 0x7f02003f
-			public const int ch = 2130837567;
-			
-			// aapt resource value: 0x7f020040
-			public const int cl = 2130837568;
-			
-			// aapt resource value: 0x7f020041
-			public const int cn = 2130837569;
-			
-			// aapt resource value: 0x7f020042
-			public const int cz = 2130837570;
-			
-			// aapt resource value: 0x7f020043
-			public const int de = 2130837571;
-			
-			// aapt resource value: 0x7f020044
-			public const int dk = 2130837572;
-			
-			// aapt resource value: 0x7f020045
-			public const int ee = 2130837573;
-			
-			// aapt resource value: 0x7f020046
-			public const int fab_shadow = 2130837574;
-			
-			// aapt resource value: 0x7f020047
-			public const int fab_shadow_mini = 2130837575;
-			
-			// aapt resource value: 0x7f020048
-			public const int fi = 2130837576;
-			
-			// aapt resource value: 0x7f020049
-			public const int fr = 2130837577;
-			
-			// aapt resource value: 0x7f02004a
-			public const int gr = 2130837578;
-			
-			// aapt resource value: 0x7f02004b
-			public const int hr = 2130837579;
-			
-			// aapt resource value: 0x7f02004c
-			public const int hu = 2130837580;
-			
-			// aapt resource value: 0x7f02004d
-			public const int ic_add_white_24dp = 2130837581;
-			
-			// aapt resource value: 0x7f02004e
-			public const int ic_launcher = 2130837582;
-			
-			// aapt resource value: 0x7f02004f
-			public const int ie = 2130837583;
-			
-			// aapt resource value: 0x7f020050
-			public const int @in = 2130837584;
-			
-			// aapt resource value: 0x7f020051
-			public const int @is = 2130837585;
-			
-			// aapt resource value: 0x7f020052
-			public const int it = 2130837586;
-			
-			// aapt resource value: 0x7f020053
-			public const int lt = 2130837587;
-			
-			// aapt resource value: 0x7f020054
-			public const int lv = 2130837588;
-			
-			// aapt resource value: 0x7f020055
-			public const int nl = 2130837589;
-			
-			// aapt resource value: 0x7f020056
-			public const int no = 2130837590;
-			
-			// aapt resource value: 0x7f020057
-			public const int nz = 2130837591;
-			
-			// aapt resource value: 0x7f020058
-			public const int se = 2130837592;
-			
-			// aapt resource value: 0x7f020059
-			public const int ua = 2130837593;
-			
-			// aapt resource value: 0x7f02005a
-			public const int us = 2130837594;
+			public const int plus = 2130837566;
 			
 			static Drawable()
 			{

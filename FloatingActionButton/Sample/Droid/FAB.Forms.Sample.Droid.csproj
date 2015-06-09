@@ -76,45 +76,17 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_add_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_add_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_add_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\at.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\au.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\br.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ca.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ch.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\cl.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\cn.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\cz.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\de.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\dk.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ee.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\fi.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\fr.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\gr.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\hr.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\hu.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ie.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\in.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\is.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\it.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\lt.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\lv.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\nl.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\no.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\nz.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\se.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ua.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\us.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\plus.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\plus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\plus.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\plus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\plus.png" />
   </ItemGroup>
   <Import Project="..\FAB.Forms.Sample\FAB.Forms.Sample.projitems" Label="Shared" Condition="Exists('..\FAB.Forms.Sample\FAB.Forms.Sample.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

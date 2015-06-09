@@ -78,17 +78,11 @@ namespace FAB.iOS
                     this.Control.Size = MNFloatingActionButton.FABSize.Normal;
                     break;
             }
-//
+
             this.Control.BackgroundColor = this.Element.NormalColor.ToUIColor();
             this.Control.PressedBackgroundColor = this.Element.PressedColor.ToUIColor();
 
             this.Control.HasShadow = this.Element.HasShadow;
-
-//            this.Control.ColorNormal = this.Element.NormalColor.ToAndroid();
-//            this.Control.ColorPressed = this.Element.PressedColor.ToAndroid();
-//            this.Control.ColorDisabled = this.Element.PressedColor.ToAndroid();
-//
-//            this.Control.HasShadow = this.Element.HasShadow;
 
             Task.Run(async () =>
                 {

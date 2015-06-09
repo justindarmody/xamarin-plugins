@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>FloatingActionButton.Forms</id>
+        <id>FAB.Forms</id>
         <version>1.0.0.0</version>
         <title>Floating Action Button For Xamarin.Forms</title>
         <authors>Drew Frisk</authors>
@@ -15,15 +15,21 @@
         <tags>xamarin, pcl, xam.pcl, floating action button, fab, android, xamarin.forms, ios</tags>
     </metadata>
     <files>
-        <file src="..\Library\FloatingActionButton.Droid\bin\Release\FloatingActionButton.Droid.dll" target="lib\MonoAndroid10\FloatingActionButton.Droid.dll" />
-        <file src="..\Library\FloatingActionButton.Droid\bin\Release\FloatingActionButton.Droid.xml" target="lib\MonoAndroid10\FloatingActionButton.Droid.xml" />
-        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.dll" target="lib\MonoAndroid10\FloatingActionButton.Forms.dll" />
-        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.xml" target="lib\MonoAndroid10\FloatingActionButton.Forms.xml" />
-        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.dll" target="lib\MonoTouch10\FloatingActionButton.Forms.dll" />
-        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.xml" target="lib\MonoTouch10\FloatingActionButton.Forms.xml" />
-        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FloatingActionButton.iOS.dll" target="lib\MonoTouch10\FloatingActionButton.iOS.dll" />
-        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FloatingActionButton.iOS.xml" target="lib\MonoTouch10\FloatingActionButton.iOS.xml" />
-        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.dll" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\FloatingActionButton.Forms.dll" />
-        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FloatingActionButton.Forms.xml" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\FloatingActionButton.Forms.xml" />
+        <file src="..\Library\FloatingActionButton.Droid\bin\Release\FAB.Droid.dll" target="lib\MonoAndroid10\FAB.Droid.dll" />
+        <file src="..\Library\FloatingActionButton.Droid\bin\Release\FAB.Droid.xml" target="lib\MonoAndroid10\FAB.Droid.xml" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.dll" target="lib\MonoAndroid10\FAB.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.xml" target="lib\MonoAndroid10\FAB.Forms.xml" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.dll" target="lib\MonoTouch10\FAB.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.xml" target="lib\MonoTouch10\FAB.Forms.xml" />
+        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FAB.iOS.dll" target="lib\MonoTouch10\FAB.iOS.dll" />
+        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FAB.iOS.xml" target="lib\MonoTouch10\FAB.iOS.xml" />
+
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.dll" target="lib\Xamarin.iOS10\FAB.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.xml" target="lib\Xamarin.iOS10\FAB.Forms.xml" />
+        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FAB.iOS.dll" target="lib\Xamarin.iOS10\FAB.iOS.dll" />
+        <file src="..\Library\FloatingActionButton.iOS\bin\Release\FAB.iOS.xml" target="lib\Xamarin.iOS10\FAB.iOS.xml" />
+        
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.dll" target="lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FAB.Forms.dll" />
+        <file src="..\Library\FloatingActionButton.Forms\bin\Release\FAB.Forms.xml" target="lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FAB.Forms.xml" />
     </files>
 </package>
