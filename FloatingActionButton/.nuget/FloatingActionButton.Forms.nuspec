@@ -8,7 +8,7 @@
         <owners>Drew Frisk</owners>
         <licenseUrl>https://github.com/keannan5390/xamarin-plugins/blob/master/LICENSE.txt</licenseUrl>
         <projectUrl>https://github.com/keannan5390/xamarin-plugins</projectUrl>
-        <iconUrl>https://github.com/keannan5390/xamarin-plugins/FloatingActionButton/assets/blob/master/icon.png</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/keannan5390/xamarin-plugins/master/FloatingActionButton/Library/assets/icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Custom control for your Xamarin.Forms project to render a floating action button in projects that target Android or iOS</description>
         <summary>Creates a Floating Action Button for Xamarin.Forms</summary>
