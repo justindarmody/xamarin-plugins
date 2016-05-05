@@ -8,18 +8,21 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace FAB.Forms.Sample.Droid
+namespace FABSample.Droid
 {
-    [Activity(Label = "FAB.Forms.Sample.Droid", Icon = "@drawable/ic_launcher", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    [Activity (Label = "FABSample.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate (Bundle bundle)
         {
-            base.OnCreate(bundle);
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            base.OnCreate (bundle);
 
-            LoadApplication(new App());
+            global::Xamarin.Forms.Forms.Init (this, bundle);
+
+            LoadApplication (new App ());
         }
     }
 }

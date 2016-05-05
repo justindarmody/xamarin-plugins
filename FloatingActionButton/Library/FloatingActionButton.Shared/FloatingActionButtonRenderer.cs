@@ -16,6 +16,11 @@ namespace FAB.WinPhone
 // see: http://windingroadway.blogspot.com/2014/06/xamarinforms-custom-controls-imagesource.html
     public partial class FloatingActionButtonRenderer
     {
+        public static void InitControl ()
+        {
+            // nothing to do here
+        }
+
         private static IImageSourceHandler GetHandler(ImageSource source)
         {
             IImageSourceHandler returnValue = null;

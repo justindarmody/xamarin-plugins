@@ -3,14 +3,15 @@ using Xamarin.Forms.Platform.iOS;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using UIKit;
+using FAB.Forms;
 
 [assembly: ExportRenderer(typeof(FAB.Forms.FloatingActionButton), typeof(FAB.iOS.FloatingActionButtonRenderer))]
 
 namespace FAB.iOS
 {
-    public partial class FloatingActionButtonRenderer : ViewRenderer<FAB.Forms.FloatingActionButton, FAB.iOS.MNFloatingActionButton>
+    public partial class FloatingActionButtonRenderer : ViewRenderer<FloatingActionButton, MNFloatingActionButton>
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<FAB.Forms.FloatingActionButton> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<FloatingActionButton> e)
         {
             base.OnElementChanged(e);
 
