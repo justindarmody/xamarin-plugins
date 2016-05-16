@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{E4486A9A-8133-478E-82E5-56A46C6A4F33}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ImageTest</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ImageTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageTakerPageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageTakerPage.xaml.cs">
+      <DependentUpon>ImageTakerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PopupImageView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NotNullConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObservableObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ImageTakerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

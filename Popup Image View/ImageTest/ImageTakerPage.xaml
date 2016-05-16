@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:self="clr-namespace:ImageTest;assembly=ImageTest.Droid"
+	x:Class="ImageTest.ImageTakerPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<self:NotNullConverter
+				x:Key="notNull" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+		<Grid
+			Padding="15">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="50" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Button
+				Grid.Row="0"
+				Text="Select New Image"
+				IsVisible="{Binding ImageFile, Converter={StaticResource notNull}}"
+				Command="{Binding ClearCurrentImageCommand}" />
+			<Button
+				Grid.Row="1"
+				Text="Pick From Gallery"
+				IsVisible="{Binding CanSelectPhoto}"
+				Command="{Binding PickPhotoCommand}"
+				HorizontalOptions="Center"
+				WidthRequest="200" />
+			<Button
+				Grid.Row="2"
+				Text="Use Camera"
+				IsVisible="{Binding CanTakePhoto}"
+				Command="{Binding TakePhotoCommand}"
+				HorizontalOptions="Center"
+				WidthRequest="200" />
+			<StackLayout
+				Grid.Row="1"
+				Grid.RowSpan="3">
+				<ActivityIndicator
+					BindingContext="{x:Reference Name=imagePreview}"
+					IsVisible="{Binding IsLoading}"
+					IsRunning="{Binding IsLoading}"
+					HorizontalOptions="Center"/>
+				<Label
+					Text="Loading Image..."
+					BindingContext="{x:Reference Name=imagePreview}"
+					IsVisible="{Binding IsLoading}"
+					HorizontalOptions="Center"/>
+				<self:PopupImageView
+					x:Name="imagePreview"
+					Source="{Binding ImageSource}"
+					IsVisible="{Binding ImageFile, Converter={StaticResource notNull}}"
+					VerticalOptions="FillAndExpand"
+					MinimumHeightRequest="100">
+					<self:PopupImageView.GestureRecognizers>
+						<TapGestureRecognizer
+							Tapped="HandleImagePreviewTapped" />
+					</self:PopupImageView.GestureRecognizers>
+				</self:PopupImageView>
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
