@@ -58,6 +58,10 @@ namespace FAB.iOS
             {
                 this.SetImage();
             }
+            else if (e.PropertyName == FloatingActionButton.IsEnabledProperty.PropertyName)
+            {
+                this.UpdateEnabled();
+            }
             else
             {
                 base.OnElementPropertyChanged(sender, e);
@@ -80,6 +84,8 @@ namespace FAB.iOS
             this.SetHasShadow();
 
             this.SetImage();
+
+            this.UpdateEnabled();
 		}
 
         private void SetSize()
@@ -109,6 +115,21 @@ namespace FAB.iOS
         private void SetImage()
         {
             SetImageAsync(this.Element.Source, this.Control);
+        }
+
+        private void UpdateEnabled()
+        {
+            this.Control.Enabled = this.Element.IsEnabled;
+
+            if (this.Control.Enabled == false)
+            {
+                this.Control.BackgroundColor = this.Element.DisabledColor.ToUIColor();
+                this.Control.PressedBackgroundColor = this.Element.DisabledColor.ToUIColor();
+            }
+            else
+            {
+                this.SetBackgroundColors();
+            }
         }
 
         private void Fab_TouchUpInside(object sender, EventArgs e)
