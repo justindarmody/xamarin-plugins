@@ -22,7 +22,7 @@ namespace FAB.iOS
 
 				this.SetNativeControl(fab);
 
-				this.UpdateStyle();
+                this.UpdateStyles();
 			}
 
 			if (e.NewElement != null)
@@ -36,10 +36,33 @@ namespace FAB.iOS
 			}
 		}
 
-		void Fab_TouchUpInside(object sender, EventArgs e)
-		{
-			this.Element.SendClicked();
-		}
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == FloatingActionButton.SourceProperty.PropertyName)
+            {
+                this.SetSize();
+            }
+            else if (e.PropertyName == FloatingActionButton.NormalColorProperty.PropertyName ||
+                     e.PropertyName == FloatingActionButton.PressedColorProperty.PropertyName ||
+                     e.PropertyName == FloatingActionButton.DisabledColorProperty.PropertyName)
+            {
+                this.SetBackgroundColors();
+            }
+            else if (e.PropertyName == FloatingActionButton.HasShadowProperty.PropertyName)
+            {
+                this.SetHasShadow();
+            }
+            else if (e.PropertyName == FloatingActionButton.SourceProperty.PropertyName ||
+                     e.PropertyName == FloatingActionButton.WidthProperty.PropertyName ||
+                     e.PropertyName == FloatingActionButton.HeightProperty.PropertyName)
+            {
+                this.SetImage();
+            }
+            else
+            {
+                base.OnElementPropertyChanged(sender, e);
+            }
+        }
 
 		public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
 		{
@@ -48,28 +71,56 @@ namespace FAB.iOS
 			return new SizeRequest(new Size(viewSize, viewSize));
 		}
 
-		private void UpdateStyle()
+		private void UpdateStyles()
 		{
-			switch (this.Element.Size)
-			{
-			case FAB.Forms.FabSize.Mini:
-				this.Control.Size = MNFloatingActionButton.FABSize.Mini;
-				break;
-			case FAB.Forms.FabSize.Normal:
-				this.Control.Size = MNFloatingActionButton.FABSize.Normal;
-				break;
-			}
+            this.SetSize();
 
-			this.Control.BackgroundColor = this.Element.NormalColor.ToUIColor();
-			this.Control.PressedBackgroundColor = this.Element.PressedColor.ToUIColor();
+            this.SetBackgroundColors();
 
-			this.Control.HasShadow = this.Element.HasShadow;
+            this.SetHasShadow();
 
-			SetImageAsync(this.Element.Source, (float)this.Element.WidthRequest, (float)this.Element.Height, this.Control);
+            this.SetImage();
 		}
 
-		private async static void SetImageAsync(ImageSource source, nfloat widthRequest, nfloat heightRequest, MNFloatingActionButton targetButton)
+        private void SetSize()
+        {
+            switch (this.Element.Size)
+            {
+                case FAB.Forms.FabSize.Mini:
+                    this.Control.Size = MNFloatingActionButton.FABSize.Mini;
+                    break;
+                case FAB.Forms.FabSize.Normal:
+                    this.Control.Size = MNFloatingActionButton.FABSize.Normal;
+                    break;
+            }
+        }
+
+        private void SetBackgroundColors()
+        {
+            this.Control.BackgroundColor = this.Element.NormalColor.ToUIColor();
+            this.Control.PressedBackgroundColor = this.Element.PressedColor.ToUIColor();
+        }
+
+        private void SetHasShadow()
+        {
+            this.Control.HasShadow = this.Element.HasShadow;
+        }
+
+        private void SetImage()
+        {
+            SetImageAsync(this.Element.Source, this.Control);
+        }
+
+        private void Fab_TouchUpInside(object sender, EventArgs e)
+        {
+            this.Element.SendClicked();
+        }
+
+		private async static void SetImageAsync(ImageSource source, MNFloatingActionButton targetButton)
 		{
+            var widthRequest = targetButton.Frame.Width;
+            var heightRequest = targetButton.Frame.Height;
+
 			var handler = GetHandler(source);
 			using (UIImage image = await handler.LoadImageAsync(source))
 			{
