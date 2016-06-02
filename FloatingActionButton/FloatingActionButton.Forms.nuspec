@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="2.8.1">
-    <id>FloatingActionButton.Forms</id>
-    <version>$version$</version>
+    <id>FAB.Forms</id>
+    <version>2.0.0-pre1</version>
     <title>Floating Action Button For Xamarin.Forms</title>
     <authors>Drew Frisk</authors>
     <owners>Drew Frisk</owners>
@@ -32,7 +32,7 @@
     <!--Xamarin.iOS-->
     <file src="Library/FloatingActionButton.Forms/bin/Release/FAB.Forms.dll" target="lib/MonoTouch10/FloatingActionButton.Forms.dll" />
     <file src="Library/FloatingActionButton.Forms/bin/Release/FAB.Forms.xml" target="lib/MonoTouch10/FloatingActionButton.Forms.xml" />
-    <file src="Library/FloatingActionButton.iOS/bin/Release/iPhone/FAB.iOS.dll" target="lib/MonoTouch10/FloatingActionButton.iOS.dll" />
-    <file src="Library/FloatingActionButton.iOS/bin/Release/iPhone/FAB.iOS.xml" target="lib/MonoTouch10/FloatingActionButton.iOS.xml" />
+    <file src="Library/FloatingActionButton.iOS/bin/Release/FAB.iOS.dll" target="lib/MonoTouch10/FloatingActionButton.iOS.dll" />
+    <file src="Library/FloatingActionButton.iOS/bin/Release/FAB.iOS.xml" target="lib/MonoTouch10/FloatingActionButton.iOS.xml" />
   </files>
 </package>
