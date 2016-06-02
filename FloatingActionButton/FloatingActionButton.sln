@@ -19,6 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FABSample.iOS", "Sample\iOS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FABSample.Droid", "Sample\Droid\FABSample.Droid.csproj", "{FEB016FC-294D-46AF-BF9D-5C1CD0C45B1D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{35E2C1F3-C97D-47E2-8C5A-6D94D9E8F942}"
+	ProjectSection(SolutionItems) = preProject
+		FloatingActionButton.Forms.nuspec = FloatingActionButton.Forms.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
