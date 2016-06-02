@@ -1,29 +1,21 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
 using Android.OS;
 
 namespace FABSample.Droid
 {
-    [Activity (Label = "FABSample.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    [Activity(Label = "FABSample.Droid", MainLauncher = true)]
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
-        protected override void OnCreate (Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            base.OnCreate(savedInstanceState);
 
-            base.OnCreate (bundle);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            global::Xamarin.Forms.Forms.Init (this, bundle);
+            var app = new FABSample.App();
 
-            LoadApplication (new App ());
+            this.LoadApplication(app);
         }
     }
 }
-
