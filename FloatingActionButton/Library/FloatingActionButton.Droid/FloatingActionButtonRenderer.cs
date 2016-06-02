@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Android.Widget;
 using System.Threading.Tasks;
 using Android.Graphics;
+using FAB.Forms;
+using Android.App;
 
 [assembly: ExportRenderer(typeof(FAB.Forms.FloatingActionButton), typeof(FAB.Droid.FloatingActionButtonRenderer))]
 
@@ -15,21 +17,54 @@ namespace FAB.Droid
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement != null)
+            if (this.Control == null)
             {
                 var fab = new com.refractored.fab.FloatingActionButton(this.Context);
 
-                fab.Click += Fab_Click;
 
                 this.SetNativeControl(fab);
 
                 this.UpdateStyle();
             }
+
+            if (e.NewElement != null)
+            {
+                this.Control.Click += Fab_Click;
+            }
+            else if (e.OldElement != null)
+            {
+                this.Control.Click -= Fab_Click;
+            }
         }
 
         protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            base.OnElementPropertyChanged(sender, e);
+            if (e.PropertyName == FloatingActionButton.SourceProperty.PropertyName)
+            {
+                this.SetSize();
+            }
+            else if (e.PropertyName == FloatingActionButton.NormalColorProperty.PropertyName ||
+                     e.PropertyName == FloatingActionButton.PressedColorProperty.PropertyName ||
+                     e.PropertyName == FloatingActionButton.DisabledColorProperty.PropertyName)
+            {
+                this.SetBackgroundColors();
+            }
+            else if (e.PropertyName == FloatingActionButton.HasShadowProperty.PropertyName)
+            {
+                this.SetHasShadow();
+            }
+            else if (e.PropertyName == FloatingActionButton.SourceProperty.PropertyName)
+            {
+                this.SetImage();
+            }
+            else if (e.PropertyName == FloatingActionButton.IsEnabledProperty.PropertyName)
+            {
+                this.UpdateEnabled();
+            }
+            else
+            {
+                base.OnElementPropertyChanged(sender, e);
+            }
         }
 
         protected override void Dispose(bool disposing)
@@ -42,8 +77,20 @@ namespace FAB.Droid
             base.Dispose(disposing);
         }
 
-
         private void UpdateStyle()
+        {
+            this.SetSize();
+
+            this.SetBackgroundColors();
+
+            this.SetHasShadow();
+
+            this.SetImage();
+
+            this.UpdateEnabled();
+        }
+
+        private void SetSize()
         {
             switch (this.Element.Size)
             {
@@ -54,18 +101,36 @@ namespace FAB.Droid
                     this.Control.Size = com.refractored.fab.FabSize.Normal;
                     break;
             }
+        }
 
+        private void SetBackgroundColors()
+        {
             this.Control.ColorNormal = this.Element.NormalColor.ToAndroid();
             this.Control.ColorPressed = this.Element.PressedColor.ToAndroid();
-            this.Control.ColorDisabled = this.Element.PressedColor.ToAndroid();
+            this.Control.ColorDisabled = this.Element.DisabledColor.ToAndroid();
+        }
 
+        private void SetHasShadow()
+        {
             this.Control.HasShadow = this.Element.HasShadow;
+        }
 
-            Task.Run(async () =>  {
+        private void SetImage()
+        {
+            Task.Run(async () =>
+            {
                 var bitmap = await this.GetBitmapAsync(this.Element.Source);
 
-                this.Control.SetImageBitmap(bitmap);
+                (this.Context as Activity).RunOnUiThread(() =>
+                {
+                    this.Control.SetImageBitmap(bitmap);
+                });
             });
+        }
+
+        private void UpdateEnabled()
+        {
+            this.Control.Enabled = this.Element.IsEnabled;
         }
 
         private async Task<Bitmap> GetBitmapAsync(ImageSource source)
@@ -78,7 +143,7 @@ namespace FAB.Droid
             return returnValue;
         }
 
-        private void Fab_Click (object sender, EventArgs e)
+        private void Fab_Click(object sender, EventArgs e)
         {
             this.Element.SendClicked();
         }
