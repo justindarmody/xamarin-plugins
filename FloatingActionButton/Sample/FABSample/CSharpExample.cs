@@ -4,13 +4,15 @@ using Xamarin.Forms;
 
 namespace FABSample
 {
-    public class App : Application
+    public class CSharpExample : ContentPage
     {
         private FloatingActionButton miniFab;
         private FloatingActionButton normalFab;
 
-        public App()
+        public CSharpExample()
         {
+            this.Title = "C# Example";
+
             var layout = new RelativeLayout();
 
             var green = new Button()
@@ -44,19 +46,12 @@ namespace FABSample
                 })
             };
 
-            var label = new Label
-            {
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                Text = "Hello Floating Action Button!"
-            };
             layout.Children.Add(
                 new StackLayout
                 {
                     Padding = new Thickness(15),
                     Children =
                     {
-                        label,
                         green,
                         red,
                         blue,
@@ -98,22 +93,18 @@ namespace FABSample
             );
             miniFab.SizeChanged += (sender, args) => { layout.ForceLayout(); };
 
-            // The root page of your application
-            MainPage = new NavigationPage(new ContentPage
-            {
-                BackgroundColor = Color.White,
-                Content = layout
-            });
 
             normalFab.Clicked += (sender, e) =>
             {
-                MainPage.DisplayAlert("Floating Action Button", "You clicked the normal FAB!", "Awesome!");
+                this.DisplayAlert("Floating Action Button", "You clicked the normal FAB!", "Awesome!");
             };
 
             miniFab.Clicked += (sender, e) =>
             {
-                MainPage.DisplayAlert("Floating Action Button", "You clicked the mini FAB!", "Awesome!");
+                this.DisplayAlert("Floating Action Button", "You clicked the mini FAB!", "Awesome!");
             };
+
+            this.Content = layout;
         }
 
         private void UpdateButtonColor(Color color)
@@ -132,3 +123,5 @@ namespace FABSample
         }
     }
 }
+
+
