@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{34782372-17E9-487C-AC2D-3194E90AD5CD}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FloatingActionButton.Shared", "Library\FloatingActionButton.Shared\FloatingActionButton.Shared.shproj", "{A00F6278-A080-4987-8E4C-075B2A9A1B86}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FAB.Shared", "Library\FloatingActionButton.Shared\FAB.Shared.shproj", "{A00F6278-A080-4987-8E4C-075B2A9A1B86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingActionButton.Forms", "Library\FloatingActionButton.Forms\FloatingActionButton.Forms.csproj", "{78B00F76-5FB4-4429-ABF6-42A80A6E967E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAB.Forms", "Library\FloatingActionButton.Forms\FAB.Forms.csproj", "{78B00F76-5FB4-4429-ABF6-42A80A6E967E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingActionButton.Droid", "Library\FloatingActionButton.Droid\FloatingActionButton.Droid.csproj", "{49CE4944-F3EC-4241-9AC2-617F42624CFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAB.Droid", "Library\FloatingActionButton.Droid\FAB.Droid.csproj", "{49CE4944-F3EC-4241-9AC2-617F42624CFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingActionButton.iOS", "Library\FloatingActionButton.iOS\FloatingActionButton.iOS.csproj", "{0FBA612E-7558-4303-8798-ACBF92A82BA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAB.iOS", "Library\FloatingActionButton.iOS\FAB.iOS.csproj", "{0FBA612E-7558-4303-8798-ACBF92A82BA0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{85EBA5F6-C0BD-4757-8F8C-3D268181F5A6}"
 EndProject

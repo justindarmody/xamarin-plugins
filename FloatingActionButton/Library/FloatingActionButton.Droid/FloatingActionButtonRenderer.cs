@@ -4,16 +4,16 @@ using Xamarin.Forms;
 using Android.Widget;
 using System.Threading.Tasks;
 using Android.Graphics;
-using FAB.Forms;
 using Android.App;
+using FAB.Forms;
 
 [assembly: ExportRenderer(typeof(FAB.Forms.FloatingActionButton), typeof(FAB.Droid.FloatingActionButtonRenderer))]
 
 namespace FAB.Droid
 {
-    public partial class FloatingActionButtonRenderer : ViewRenderer<FAB.Forms.FloatingActionButton, com.refractored.fab.FloatingActionButton>
+    public partial class FloatingActionButtonRenderer : ViewRenderer<FloatingActionButton, com.refractored.fab.FloatingActionButton>
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<FAB.Forms.FloatingActionButton> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<FloatingActionButton> e)
         {
             base.OnElementChanged(e);
 
