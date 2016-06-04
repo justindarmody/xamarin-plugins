@@ -9,3 +9,4 @@ Each plugin has a README with more information on what they contain.
 * **[Xamarin.Forms ExtendedMaps](https://github.com/keannan5390/xamarin-plugins/tree/master/ExtendedMaps)**
 * **[Xamarin.Forms CardView](https://github.com/keannan5390/xamarin-plugins/tree/master/CardView)**
 * **[Xamarin.Forms Floating Action Button](https://github.com/keannan5390/xamarin-plugins/tree/master/FloatingActionButton)**
+* **[Xamarin.Forms Popup Image View](https://github.com/keannan5390/xamarin-plugins/tree/master/Popup%20Image%20View)**
