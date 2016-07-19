@@ -7,7 +7,7 @@ namespace CardView.Forms.Plugin.Abstractions
     /// <summary>
     /// CardContentView Interface
     /// </summary>
-    public class CardContentView : ContentView
+    public class CardContentView : Frame//ContentView
     {
         public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create<CardContentView,float> ( p => p.CornderRadius, 3.0F);   
         public static readonly BindableProperty IsSwipeableProperty = BindableProperty.Create<CardContentView,bool> ( p => p.IsSwipeable, true);   

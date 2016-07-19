@@ -51,6 +51,9 @@ namespace CardView.Forms.Plugin.Droid
             {
                 this.ElementChanged(this, new VisualElementChangedEventArgs(oldElement, this.Element));
             }
+
+			this.Elevation = 8;
+			this.CardElevation = 8;
         }
 
         public CardContentView TheView 
